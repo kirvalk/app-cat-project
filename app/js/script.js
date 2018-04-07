@@ -1,22 +1,43 @@
-const allElems = document.querySelectorAll('*');
+const allElems = document.querySelectorAll('*'),
+      REMOVE_INTERVAL_ID = 600;
+      SET_INTERVAL_ID = 500;
+      
+setInterval(function(){
+	setElemColor(getRandomElem(allElems), getRandomColor());
+}, SET_INTERVAL_ID);
 
-function setColor (elemSet, color) {
-	rnd = Math.floor(Math.random()*elemSet.length);
-	elemSet[rnd].style.backgroundColor = color;
+setInterval(function(){
+	removeColor(getRandomChangedElem());
+}, REMOVE_INTERVAL_ID);
+
+function getRandomElem (elemSet) {
+	const rnd = Math.floor(Math.random()*elemSet.length);
+	return elemSet[rnd];
 }
 
-setColor(allElems, "green");
+function setElemColor (elem, color) {
+	elem.style.backgroundColor = color;
+	elem.classList.add('changed');
+}
 
+function getRandomChangedElem () {
+	const changedElems = document.querySelectorAll('.changed');
+	return getRandomElem(changedElems);	
+}
 
+function removeColor (elem) {
+	elem.style.backgroundColor = '';
+	elem.classList.remove('changed');
+}
 
-function getRandomColor() {
-	const r = Math.floor(Math.random()*255);
-	const g = Math.floor(Math.random()*255);
-	const b = Math.floor(Math.random()*255);
-	const result = "rgb("+ r + "," + g + "," + b + ")";
+function getRandomRgbNum () {
+	return Math.floor(Math.random()*256);
+}
+
+function getRandomColor () {
+	const r = getRandomRgbNum(),
+	      g = getRandomRgbNum(),
+		  b = getRandomRgbNum();
+	const result = `rgb(${r}, ${g}, ${b})`;
 	return result;
 }
-
-const intervalId = setInterval(function(){
-	setColor(allElems, getRandomColor())
-}, 2000);
