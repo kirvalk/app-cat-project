@@ -134,15 +134,11 @@ input:focus, a:focus {
 }
 .content-grid__row2 {
 	padding-top: 26px;
+	height: 288px;
+	overflow: hidden;
 }
 .content-grid__row3 {
 	padding-top: 63px;
-}
-.content-grid__pad2 {
-	padding-left: 11px;
-}
-.content-grid__pad3 {
-	padding-left: 22px;
 }
 
 /***  CONTENT  ***/
@@ -185,7 +181,14 @@ input:focus, a:focus {
 	height: 197px;
 }
 .package {
+	display: inline-block;
+	margin-left: 33px;
+	margin-right: -4px;
 	width: 329px;
+}
+
+.package:first-child {
+	margin-left: 0;
 }
 .package__name {
 	margin-top: 17px;
