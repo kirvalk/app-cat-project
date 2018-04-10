@@ -134,7 +134,8 @@ input:focus, a:focus {
 }
 .content-grid__row2 {
 	padding-top: 26px;
-	height: 288px;
+	min-height: 288px;
+    max-height: 320px;
 	overflow: hidden;
 }
 .content-grid__row3 {
@@ -185,6 +186,7 @@ input:focus, a:focus {
 	margin-left: 33px;
 	margin-right: -4px;
 	width: 329px;
+	vertical-align: top;
 }
 
 .package:first-child {
