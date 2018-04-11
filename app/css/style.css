@@ -184,7 +184,6 @@ input:focus, a:focus {
 .package {
 	display: inline-block;
 	margin-left: 33px;
-	margin-right: -4px;
 	width: 329px;
 	vertical-align: top;
 }
@@ -192,6 +191,11 @@ input:focus, a:focus {
 .package:first-child {
 	margin-left: 0;
 }
+
+.package:nth-child(n+4) {
+	display: none;
+}
+
 .package__name {
 	margin-top: 17px;
 	margin-bottom: 6px;
