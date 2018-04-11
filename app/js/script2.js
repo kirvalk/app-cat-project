@@ -51,29 +51,29 @@ document.addEventListener('DOMContentLoaded', function(){
      date: '2016-09-10'
     }
   ];
-  setPackages(3);
+  setPromoApps(3);
 
-  function setPackages (NumberOfPackages) {
-    const prBlock = document.querySelector('#promo-block');
-    for (let i = 0; i < NumberOfPackages; i++) {
-     createAppView(getRandomApp(appList), prBlock);
+  function setPromoApps (NumberOfApps) {
+    const promoBlock = document.querySelector('#promo-block');
+    for (let i = 0; i < NumberOfApps; i++) {
+     createAppView(getRandomApp(appList), promoBlock);
    }
   }
 
   function createAppView(app, placeNode) {
-    const wrapper = createAppWrapper();
-    const img = createAppImg(app.path),
-    link = createAppLink(app.name),
-    date = createAppDate(app.date);
+    const wrapper = createAppWrapper(),
+          img = createAppImg(app.path),
+          link = createAppLink(app.name),
+          date = createAppDate(app.date);
     placeNode.appendChild(wrapper);	
     wrapper.appendChild(img);		
     wrapper.appendChild(link);		
     wrapper.appendChild(date);		
   }
 
-  function createAppImg(path) {
+  function createAppImg(appPath) {
     const img = document.createElement('IMG');
-    img.src = path;
+    img.src = appPath;
     img.classList.add('page__pic', 'package__image');
     return img;
   }
