@@ -134,13 +134,11 @@ input:focus, a:focus {
 }
 .content-grid__row2 {
 	padding-top: 26px;
-	min-height: 288px;
-    max-height: 320px;
-	overflow: hidden;
 }
 .content-grid__row3 {
 	padding-top: 63px;
 }
+
 
 /***  CONTENT  ***/
 .content {
@@ -192,10 +190,6 @@ input:focus, a:focus {
 	margin-left: 0;
 }
 
-.package:nth-child(n+4) {
-	display: none;
-}
-
 .package__name {
 	margin-top: 17px;
 	margin-bottom: 6px;
@@ -208,7 +202,59 @@ input:focus, a:focus {
 	font-size: 16px;
 	color: #adafb2;
 }
+.promo {
+	position: relative;
+	overflow: hidden;
+	min-height: 318px;
+    max-height: 350px;
+    padding-bottom: 30px;
+}
+.promo-layout {
+	position: absolute;
+	width: 10000px;
+	transition: all .5s;
+	left: 0;
+}
+.promo__points-container {
+	position: absolute;
+	left:327px;
+	top: 302px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	width: 400px;
+}
+.promo__point {
+	height: 15px;
+	width: 15px;
+	border: 3px solid #1E8BC3;
+	background-color: #ffffff;
+	border-radius: 50%;
+	cursor: pointer;
+}
 
+.promo__point_active {
+	background-color: #1E8BC3;
+}
+.promo__arrow-wrapper {
+	position: absolute;
+	top: 50%;
+	width: 41px;
+	height: 49px;
+	padding: 5px 10px;
+	background-color: rgba(255, 255, 255, 0.8);
+	cursor: pointer;
+}
+
+.promo__arrow-wrapper_right {
+	right: 0;
+	transform: rotateZ(180deg);
+}
+.promo__arrow {
+	width: 21px;
+	height: 39px;
+	fill: #1E8BC3;
+}
 /***  APP-TYPE  ***/
 .app-type {
 	width: 485px;
