@@ -51,13 +51,15 @@ document.addEventListener('DOMContentLoaded', function(){
      date: '2016-09-10'
     }
   ];
-  setPromoApps(3);
+  putPromoApps(7);
+  document.querySelectorAll('.package')[1].classList.add('middle');
 
-  function setPromoApps (NumberOfApps) {
-    const promoBlock = document.querySelector('#promo-block');
-    for (let i = 0; i < NumberOfApps; i++) {
+  function putPromoApps (numberOfApps) {
+    const promoBlock = document.querySelector('.promo-layout');
+    for (let i = 0; i < numberOfApps; i++) {
      createAppView(getRandomApp(appList), promoBlock);
-   }
+    }
+     putPromoPoints(numberOfApps);
   }
 
   function createAppView(app, placeNode) {
@@ -65,10 +67,10 @@ document.addEventListener('DOMContentLoaded', function(){
           img = createAppImg(app.path),
           link = createAppLink(app.name),
           date = createAppDate(app.date);
-    placeNode.appendChild(wrapper);	
-    wrapper.appendChild(img);		
-    wrapper.appendChild(link);		
-    wrapper.appendChild(date);		
+    placeNode.appendChild(wrapper); 
+    wrapper.appendChild(img);   
+    wrapper.appendChild(link);    
+    wrapper.appendChild(date);    
   }
 
   function createAppImg(appPath) {
@@ -104,4 +106,17 @@ document.addEventListener('DOMContentLoaded', function(){
     const rnd = Math.floor(Math.random() * list.length);
     return list[rnd];
   }
+  function putPromoPoints(num) {
+    const pointContainer = document.querySelector('.promo__points-container');
+    for (let i = 1; i <= num; i++) {
+      const point = document.createElement('DIV');
+      point.classList.add('promo__point');
+      if (i === 2 || num === 1) {
+        point.classList.add('promo__point_active');
+      }
+      pointContainer.appendChild(point);
+    }
+  }
+
+
 });
