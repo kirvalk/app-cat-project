@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', function(){
   function putPromoApps (numberOfApps) {
     const promoBlock = document.querySelector('.promo-layout');
     for (let i = 0; i < numberOfApps; i++) {
-     const appView = createAppView(getRandomApp(appList));
-     promoBlock.appendChild(appView);
+      const appView = createAppView(getRandomApp(appList));
+      promoBlock.appendChild(appView);
     }
     document.querySelectorAll('.package')[1].classList.add('middle');
     putPromoPoints(numberOfApps);
@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function(){
     return list[rnd];
   }
 
+  // Добавляет на страницу необходимое количество точек для слайдера
   function putPromoPoints(num) {
     const pointContainer = document.querySelector('.promo__points-container');
     for (let i = 1; i <= num; i++) {

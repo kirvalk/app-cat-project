@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function(){
   const STEP_WIDTH = -362;
-  const leftArrow = document.querySelector('.promo__arrow-wrapper_left');
-  const rightArrow = document.querySelector('.promo__arrow-wrapper_right');
-  const promoLayout = document.querySelector('.promo-layout');
-  const allPackages = document.querySelectorAll('.package');
-  const pointContainer = document.querySelector('.promo__points-container');
-  const points = document.querySelectorAll('.promo__point');
+  const leftArrow = document.querySelector('.promo__arrow-wrapper_left'),
+        rightArrow = document.querySelector('.promo__arrow-wrapper_right'),
+        promoLayout = document.querySelector('.promo-layout'),
+        allPackages = document.querySelectorAll('.package'),
+        pointContainer = document.querySelector('.promo__points-container'),
+        points = document.querySelectorAll('.promo__point');
   const getNodeIndex = (node, nodeList) => [...nodeList].indexOf(node);
   
   leftArrow.addEventListener('click', moveLeft);
