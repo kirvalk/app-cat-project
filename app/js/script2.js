@@ -52,60 +52,32 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   ];
   putPromoApps(7);
-  document.querySelectorAll('.package')[1].classList.add('middle');
 
   function putPromoApps (numberOfApps) {
     const promoBlock = document.querySelector('.promo-layout');
     for (let i = 0; i < numberOfApps; i++) {
-     createAppView(getRandomApp(appList), promoBlock);
+     const appView = createAppView(getRandomApp(appList));
+     promoBlock.appendChild(appView);
     }
-     putPromoPoints(numberOfApps);
+    document.querySelectorAll('.package')[1].classList.add('middle');
+    putPromoPoints(numberOfApps);
   }
 
-  function createAppView(app, placeNode) {
-    const wrapper = createAppWrapper(),
-          img = createAppImg(app.path),
-          link = createAppLink(app.name),
-          date = createAppDate(app.date);
-    placeNode.appendChild(wrapper); 
-    wrapper.appendChild(img);   
-    wrapper.appendChild(link);    
-    wrapper.appendChild(date);    
-  }
-
-  function createAppImg(appPath) {
-    const img = document.createElement('IMG');
-    img.src = appPath;
-    img.classList.add('page__pic', 'package__image');
-    return img;
-  }
-
-  function createAppLink(appName) {
-    const name = document.createElement('A');
-    name.href = '#';
-    name.innerHTML = appName;
-    name.classList.add('package__name','link');
-    return name;
-  }
-
-  function createAppDate(appTime) {
-    const date = document.createElement('TIME');
-    date.datetime = appTime;
-    date.innerHTML = appTime;
-    date.classList.add('package__date');
-    return date;
-  }
-
-  function createAppWrapper() {
-    const wrapper = document.createElement('DIV');
-    wrapper.classList.add('package');
-    return wrapper;
+  function createAppView(app) {
+    const appView = document.querySelector('#package-temp').cloneNode(true);
+    appView.content.querySelector('.package__image').src = app.path;
+    appView.content.querySelector('.package__name').innerHTML = app.name;
+    appView.content.querySelector('.package__name').href = '#';
+    appView.content.querySelector('.package__date').innerHTML = app.date;
+    const clone = document.importNode(appView.content, true);
+    return clone;
   }
 
   function getRandomApp(list) {
     const rnd = Math.floor(Math.random() * list.length);
     return list[rnd];
   }
+
   function putPromoPoints(num) {
     const pointContainer = document.querySelector('.promo__points-container');
     for (let i = 1; i <= num; i++) {
@@ -117,6 +89,4 @@ document.addEventListener('DOMContentLoaded', function(){
       pointContainer.appendChild(point);
     }
   }
-
-
 });
