@@ -182,6 +182,7 @@ input:focus, a:focus {
 .package {
 	display: inline-block;
 	margin-left: 33px;
+	margin-right: -4px;
 	width: 329px;
 	vertical-align: top;
 }
