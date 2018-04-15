@@ -5,7 +5,7 @@ import {highlightActiveApp} from './script4.js';
 document.addEventListener('DOMContentLoaded', function() {
 	highlightActiveHeaderLink();
 	const xhr = new XMLHttpRequest(); 
-	xhr.open("GET", '/api/app_packages.json', true);
+	xhr.open("GET", './api/app_packages.json', true);
 	xhr.send();
 
 	xhr.onload = function(ev) {
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loader.classList.add('cssload-loader-hidden');
       }
     });
-		xhr.open("GET", `/api/app_package${index}.json`, true);
+		xhr.open("GET", `./api/app_package${index}.json`, true);
 		xhr.onload = function(ev) {
 			const app = JSON.parse(xhr.responseText);
 			createMainAppView(app);

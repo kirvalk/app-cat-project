@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     alert('ERROR');
   });
   
-  xhr.open("GET", '/api/app_packages.json', true);
+  xhr.open("GET", './api/app_packages.json', true);
   setTimeout(function(){
     xhr.send();
   }, 1000);
