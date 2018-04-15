@@ -30,12 +30,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	function fillAppInfo(index) {
 		const xhr = new XMLHttpRequest();
+    xhr.addEventListener('readystatechange', function(ev) {
+    const loader = document.querySelector('.cssload-loader');
+      if (xhr.readyState === 1) {
+        loader.classList.remove('cssload-loader-hidden');
+      } else if (xhr.readyState === 4) {
+        loader.classList.add('cssload-loader-hidden');
+      }
+    });
 		xhr.open("GET", `/api/app_package${index}.json`, true);
 		xhr.onload = function(ev) {
 			const app = JSON.parse(xhr.responseText);
 			createMainAppView(app);
 		};
-    xhr.send();
+    setTimeout(function(){
+      xhr.send();
+    }, 1000);
 	}
 
 	function createAppLink (appObj) {
