@@ -6,51 +6,44 @@
   <link rel="stylesheet" type="text/css" href="./css/normalize.css">
   <link rel="stylesheet" type="text/css" href="./css/ui-kit.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script type="module" src="./js/appscript.js"></script>
 </head> 
 <body class="page">
 	<header class="header clear">
 		<div class="page__elem-full">
-			<a href="#">
+			<a href="/">
 				<svg class="header__logo">
 					<use xlink:href="#logo"></use>
 				</svg>
 			</a>
 			<nav class="header__menu">
-				<a class="link header__link" href="#">ГЛАВНАЯ</a>
-				<a class="link header__link" href="#">КАТАЛОГ ПРИЛОЖЕНИЙ</a>
+				<a class="link header__link" href="/">ГЛАВНАЯ</a>
+				<a class="link header__link" href="/app.html">КАТАЛОГ ПРИЛОЖЕНИЙ</a>
 				<a class="link header__link" href="#">О КОМПАНИИ</a>
 			</nav>
 		</div>
 	</header>
 	<div class="content__pos page__elem-full">
 		<section class="content page__elem-wide content_screen_app">
-			<h2 class="cat-header content__pos_wide page__bordered-separator">НОВЫЙ ЦФТ-БАНК</h2>
+			<h2 class="cat-header content__pos_wide page__bordered-separator"></h2>
 			<div class="imgbtn">
 				<img class="imgbtn__image page__pic" src="./assets/img/app-img.jpg" alt="">
 				<div class="imgbtn__button">
 					<a href="#" class="button button_theme_blue button_normal">В КОРЗИНУ</a>
 				</div>
 			</div>
-			<time class="app-date" datetime="2016-09-09">09 сентября 2016</time>
-			<div class="spec">Приложение лицензировано в 25 банках</div>
-			<div class="spec">Тип Приложения: Базовое</div>
-			<div class="spec">Разработчик: ЦФТ</div>
-			<div class="spec">Код по каталогу: 1B365001</div>
+			<time class="app-date"></time>
+			<div class="spec">Приложение лицензировано в <span id="banks-num"></span> банках</div>
+			<div class="spec">Тип Приложения: <span id="app-type"></span></div>
+			<div class="spec">Разработчик: <span id="app-dev"></span></div>
+			<div class="spec">Код по каталогу: <span id="app-code"></span></div>
 			<div class="spec spec_req">
-				<span class="spec_dark">Требования:</span> совместимо с v.14.1, ТЯ v.7.4.0.0 и выше, при наличии лицензии на Проигрыватель форм в web
+				<span class="spec_dark">Требования:</span> <span id="app-req"></span>
 			</div>
 			<div class="clear"></div>
 			<h2 class="cat-header content__pos_wide page__bordered-separator h-pos">ОСНОВНЫЕ ФУНКЦИИ</h2>
 			<ul class="func">
-				<li class="func__item">
-					Выполнение операций по банковским продуктам, используемым клиентом, и оформление новых продуктов банка непосредственно из Единого окна
-				</li>
-				<li class="func__item">
-					Возможность определения одного банковского продукта для отображения в Едином окне как рекомендуемого (для формирования списка адресно рекомендуемых продуктов необходима лицензия на Приложение Управление целевым маркетингом)
-				</li>
-				<li class="func__item">
-					Начисление баллов операционным сотрудникам за выполнение операций по банковским продуктам и отображение результатов в Едином окне (для использования гибкой настройки условий начисления баллов необходима лицензия на Приложение Игрофикация)
-				</li>
+				<!-- <li class="func__item"></li> -->
 			</ul>
 
 		</section>
@@ -58,53 +51,19 @@
 			<div class="cat-menu__name page__bordered-separator">
 				Каталог приложений
 			</div>
-			<ul class="cat-menu__list">
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Стандартный пакет</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Новый ЦФТ-Банк</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Cash Management</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Аренда сейфов</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Банковские гарантии</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Казначейство</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Страхование</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Факторинговое обслуживание</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Переводы средств</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Расчетный центр</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Пластиковые карты</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Финансовый мониторинг</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Депозиты и вклады</a>
-				</li>
-				<li class="cat-menu__item">
-					<a class="link cat-menu__link" href="#">Инвестиции</a>
-				</li>
-			</ul>
+			<ul class="cat-menu__list"></ul>
 		</nav>
 	</div>
-
+	<template id="menu-item">
+		<li class="cat-menu__item">
+			<a class="link cat-menu__link" href="#">Стандартный пакет</a>
+		</li>
+	</template>
+	<div class="cssload-loader cssload-loader-hidden">
+		<div class="cssload-inner cssload-one"></div>
+		<div class="cssload-inner cssload-two"></div>
+		<div class="cssload-inner cssload-three"></div>
+	</div>
 	<!-- SVG INFO	 -->
 	<svg class="svg" xmlns="http://www.w3.org/2000/svg">
 		<symbol id="lines" viewBox="0 0 20 15">

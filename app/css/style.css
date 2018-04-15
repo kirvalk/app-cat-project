@@ -46,7 +46,9 @@ input:focus, a:focus {
 .link {
 	text-decoration: none;
 }
-.link:hover {
+.link:hover,
+.cat-menu__link.cat-menu__link_active,
+.header__link.header__link_active {
 	color: #ed1b2f;
 }
 .link:active {
@@ -80,6 +82,7 @@ input:focus, a:focus {
 	color: #adafb2;
 	transition: color .2s ease;
 }
+
 .header__link:hover {
 	transition: color .2s ease;
 }
@@ -345,10 +348,12 @@ input:focus, a:focus {
 	transition: width 0.2s ease;
 }
 .cat-menu__link:hover:after,
-.cat-menu__link:active:after {
+.cat-menu__link:active:after,
+.cat-menu__link_active:after {
 	width: 100%;
 	transition: width 0.2s ease;
 }
+
 .cat-menu__list {
 	margin-top: 30px;
 	padding-left: 18px;
@@ -465,6 +470,10 @@ input:focus, a:focus {
 	margin-top: 19px;
 	text-align: center;
 }
+.imgbtn__image {
+	width: 251px;
+	height: 188px;
+}
 
 /*** FUNC  ***/
 .func {
@@ -481,4 +490,74 @@ input:focus, a:focus {
 
 .h-pos {
 	padding-top: 42px;
+}
+
+/*** LOADER ***/
+.cssload-loader-hidden {
+	display: none;
+}
+.cssload-loader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 96px;
+	height: 96px;
+	border-radius: 50%;
+	perspective: 1200px;
+}
+
+.cssload-inner {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	border-radius: 50%;
+}
+
+.cssload-inner.cssload-one {
+	left: 0%;
+	top: 0%;
+	animation: cssload-rotate-one 0.8s linear infinite;
+	border-bottom: 5px solid rgb(240,26,240);
+}
+
+.cssload-inner.cssload-two {
+	right: 0%;
+	top: 0%;
+	animation: cssload-rotate-two 0.8s linear infinite;
+	border-right: 5px solid rgb(18,29,235);
+}
+
+.cssload-inner.cssload-three {
+	right: 0%;
+	bottom: 0%;
+	animation: cssload-rotate-three 0.8s linear infinite;
+	border-top: 5px solid rgb(158,219,27);
+}
+
+@keyframes cssload-rotate-one {
+	0% {
+		transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+	}
+}
+
+@keyframes cssload-rotate-two {
+	0% {
+		transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+	}
+}
+
+@keyframes cssload-rotate-three {
+	0% {
+		transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+	}
 }
