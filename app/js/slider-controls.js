@@ -4,10 +4,19 @@ const getNodeIndex = (node, nodeList) => [...nodeList].indexOf(node);
 export function initSliderControls() {
   const leftArrow = document.querySelector('.promo__arrow-wrapper_left'),
         rightArrow = document.querySelector('.promo__arrow-wrapper_right'),
-        pointContainer = document.querySelector('.promo__points-container');
+        pointContainer = document.querySelector('.promo__points-container'),
+        sliderContainer = document.querySelector('.promo-layout');
   leftArrow.addEventListener('click', moveLeft);
   rightArrow.addEventListener('click', moveRight);
   pointContainer.addEventListener('click', moveToPoint);
+  sliderContainer.addEventListener('click', goToCatalog);
+}
+
+function goToCatalog(ev) {
+  if (!ev.target.classList.contains('package__name')) return;
+  ev.preventDefault();
+  const appId = ev.target.dataset.id;
+  location.href = `${location.href}app.html#index${appId}`;
 }
 
 function moveLeft(){

@@ -12,13 +12,11 @@ function createAppView(app) {
   const appView = document.querySelector('#package-temp').cloneNode(true);
   appView.content.querySelector('.package__image').src = `./assets/img/img-${app.guid}.jpg`;
   appView.content.querySelector('.package__name').innerHTML = app.title;
-  // appView.content.querySelector('.package__name').href = '#';
+  appView.content.querySelector('.package__name').setAttribute('data-id', app.id);
   appView.content.querySelector('.package__date').innerHTML = convertUTS(app.lastUpdate);
   const clone = document.importNode(appView.content, true);
   return clone;
 }
-
-
 
 function getRandomApps(list, quantity) {
   let result = [];
@@ -29,6 +27,7 @@ function getRandomApps(list, quantity) {
   }
   return result;
 }
+
 // Добавляет на страницу необходимое количество точек для слайдера
 function putPromoPoints(num) {
   const pointContainer = document.querySelector('.promo__points-container');

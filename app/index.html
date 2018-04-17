@@ -32,20 +32,7 @@
 					<input type="text" class="text-input search-input" placeholder="Поиск приложения">
 				</div>
 			</div>
-			<div class="promo content-grid__cell6 content-grid__cell content-grid__row2">
-				<div class="promo-layout"></div>
-				<div class="promo__arrow-wrapper promo__arrow-wrapper_left">
-					<svg class="promo__arrow">
-						<use xlink:href="#slider-arrow"></use>
-					</svg>
-				</div>
-				<div class="promo__arrow-wrapper promo__arrow-wrapper_right">
-					<svg class="promo__arrow">
-						<use xlink:href="#slider-arrow"></use>
-					</svg>
-				</div>
-				<div class="promo__points-container"></div>
-			</div>	
+			<div class="promo content-grid__cell6 content-grid__cell content-grid__row2"></div>	
 			<div class="content-grid__cell3 content-grid__cell content-grid__row3">
 				<div class="app-type">
 					<div class="app-type__header page__bordered-separator">
@@ -94,6 +81,25 @@
 			</div>
 		</div>
 	</section>
+	<template id="slider-temp">
+		<div class="promo-layout"></div>
+		<div class="promo__arrow-wrapper promo__arrow-wrapper_left">
+			<svg class="promo__arrow">
+				<use xlink:href="#slider-arrow"></use>
+			</svg>
+		</div>
+		<div class="promo__arrow-wrapper promo__arrow-wrapper_right">
+			<svg class="promo__arrow">
+				<use xlink:href="#slider-arrow"></use>
+			</svg>
+		</div>
+		<div class="promo__points-container"></div>
+		<svg class="svg" xmlns="http://www.w3.org/2000/svg">
+			<symbol id="slider-arrow" viewBox="0 0 7 13">
+				<path d="M.002 6.206a.759.759 0 0 1 .221-.595L5.611.223a.761.761 0 1 1 1.077 1.078L1.783 6.206l4.905 4.905a.761.761 0 1 1-1.077 1.077L.223 6.801a.76.76 0 0 1-.22-.595z"/>
+			</symbol>
+		</svg>
+	</template>
 	<template id="package-temp">
 		<div class="package">
 			<img src="" class="page__pic package__image">
@@ -101,6 +107,7 @@
 			<time class="package__date"></time>
 		</div>
 	</template>
+	<!-- LOADER -->
 	<div class="cssload-loader cssload-loader-hidden">
 		<div class="cssload-inner cssload-one"></div>
 		<div class="cssload-inner cssload-two"></div>
@@ -108,18 +115,6 @@
 	</div>
 	<!-- SVG INFO	 -->
 	<svg class="svg" xmlns="http://www.w3.org/2000/svg">
-		<symbol id="lines" viewBox="0 0 20 15">
-			<path d="M14.571 13.763c0 .422-.34.762-.762.762H6.191c-.211 0-.401-.085-.54-.223a.761.761 0 0 1 .539-1.3h7.62c.42 0 .762.34.761.761zM16.857 11.477H3.143a.758.758 0 0 1-.762-.762c0-.42.341-.76.762-.761h13.714a.762.762 0 0 1 0 1.523zM5.429 1.574c0-.422.34-.763.762-.762h7.618a.761.761 0 1 1 0 1.523H6.191a.762.762 0 0 1-.762-.761zM3.143 3.86h13.714a.761.761 0 1 1 0 1.523H3.143a.762.762 0 0 1 0-1.524zM.857 7.668c0-.42.34-.761.762-.761h16.762a.761.761 0 1 1 0 1.523H1.619a.758.758 0 0 1-.762-.762z"/>
-		</symbol>
-		<symbol id="slider-arrow" viewBox="0 0 7 13">
-			<path d="M.002 6.206a.759.759 0 0 1 .221-.595L5.611.223a.761.761 0 1 1 1.077 1.078L1.783 6.206l4.905 4.905a.761.761 0 1 1-1.077 1.077L.223 6.801a.76.76 0 0 1-.22-.595z"/>
-		</symbol>
-		<symbol id="grid" viewBox="0 0 16 15">
-			<rect width="6.91" height="6.295" rx="1"/>
-        	<rect width="6.91" height="6.295" y="7.941" rx="1"/>
-        	<rect width="6.91" height="6.295" x="8.889" rx="1"/>
-        	<rect width="6.91" height="6.295" x="8.889" y="7.941" rx="1"/>
-		</symbol>
 		<symbol id="logo" viewBox="0 0 145 60">
 			<path fill="#ED1B2F" d="M0 0h145v60H0z"/>
 			<path fill="#FFF" d="M70.5 43.8v-.9H68V17.1h.8c3.5 0 4.7 5.3 5 8H75l-.2-8.9h-18l-.2 8.9h1.1c.7-4.9 2.3-8 5.1-8h.7v25.8H61v.9h9.5zM39.8 16.2v.9h2.5v2.5c-3.7-.2-9.7 1.2-9.7 10.7 0 10.4 6.5 10.9 9.7 10.7v2.6h-2.5v.9h9.5v-.9h-2.5V41c3.1.2 9.7-.5 9.7-10.7 0-9.5-6-10.8-9.7-10.7v-2.5h2.5v-.9h-9.5zm7 4.3h.8c3.2 0 3.7 2.9 3.7 4.7v9.7c0 2.6-.6 5.1-3.6 5.1h-1V20.5h.1zM42.3 40h-.7c-3 0-3.8-2.1-3.8-5.1v-9.7c0-4.5 2.8-4.7 3.9-4.7h.7V40h-.1z"/>
