@@ -492,6 +492,14 @@ input:focus, a:focus {
 	padding-top: 42px;
 }
 
+.imgbtn__price {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 40px;
+}
+.imgbtn__price:after {
+}
+
 /*** LOADER ***/
 .cssload-loader-hidden {
 	display: none;
