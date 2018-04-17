@@ -500,6 +500,24 @@ input:focus, a:focus {
 .imgbtn__price:after {
 }
 
+
+/***  SHOPPING CART  ***/
+.cart-icon {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	fill: #239fde;
+}
+.cart {
+	margin-top: 5px;
+    margin-right: 50px;
+    float: right;
+	color: #79878e;
+}
+.cart__info {
+	display: inline-block;
+}
+
 /*** LOADER ***/
 .cssload-loader-hidden {
 	display: none;
@@ -569,3 +587,4 @@ input:focus, a:focus {
 		transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
 	}
 }
+

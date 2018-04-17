@@ -90,7 +90,8 @@ function createMainAppView (appObj) {
         appReq = document.querySelector('#app-req'),
         appImg = document.querySelector('.imgbtn__image'),
         appFunctions = document.querySelector('.func'),
-        appPrice = document.querySelector('.imgbtn__price');
+        appPrice = document.querySelector('.imgbtn__price'),
+        addToCartBtn = document.querySelector('#gotocart');
 	appName.innerHTML = appObj.title;
   lastUpdate.innerHTML = convertUTS(appObj.lastUpdate);
   banksNum.innerHTML = appObj.banks;
@@ -100,7 +101,8 @@ function createMainAppView (appObj) {
   appReq.innerHTML = appObj.req;
   appImg.src = `./assets/img/img-${appObj.guid}.jpg`;
   appFunctions.innerHTML = '';
-  appPrice.innerHTML = appObj.price;
+  appPrice.innerHTML = appObj.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  addToCartBtn.setAttribute('data-id', appObj.id);
   appObj.functions.forEach(func => {
     const funcItem = document.createElement('LI');
     funcItem.classList.add('func__item');
