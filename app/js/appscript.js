@@ -1,6 +1,8 @@
 import {highlightActiveHeaderLink} from './script4.js';
-import {convertUTS} from './script4.js';
 import {highlightActiveApp} from './script4.js';
+import {convertUTS} from './script4.js';
+// import {addToCart} from './script5.js';
+// import {Cart} from './script5.js';
 
 document.addEventListener('DOMContentLoaded', function() {
 	highlightActiveHeaderLink();
@@ -13,19 +15,30 @@ document.addEventListener('DOMContentLoaded', function() {
   		for (let app of apps) {
   			createAppLink(app);
   		}
-  		fillAppInfo(1);
-      highlightActiveApp(1);
+
+      if (!getCurrentId()) {
+        location.href = `${location.href}#index1`;
+      }
+
+  		fillAppInfo(getCurrentId());
+      highlightActiveApp(getCurrentId());
 	};
+
+  function getCurrentId(){
+    return location.href.split('#index')[1];
+  }
 
   const appMenu = document.querySelector('.cat-menu');
   appMenu.addEventListener('click', function(ev) {
     if (!ev.target.classList.contains('cat-menu__link')) return;
     ev.preventDefault();
-    console.log(ev.target.dataset.id);
+    const appId = ev.target.dataset.id;
+    location.hash = "";
+    location.href = `${location.href}index${appId}`;
     const appLinks = document.querySelectorAll('.cat-menu__link');
     appLinks.forEach(link => link.classList.remove('cat-menu__link_active'));
-    highlightActiveApp(ev.target.dataset.id);
-    fillAppInfo(ev.target.dataset.id);
+    highlightActiveApp(appId);
+    fillAppInfo(appId);
   });
 
 	function fillAppInfo(index) {
@@ -43,9 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
 			const app = JSON.parse(xhr.responseText);
 			createMainAppView(app);
 		};
-    setTimeout(function(){
+
       xhr.send();
-    }, 1000);
 	}
 
 	function createAppLink (appObj) {
@@ -67,7 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
           appCode = document.querySelector('#app-code'),
           appReq = document.querySelector('#app-req'),
           appImg = document.querySelector('.imgbtn__image'),
-          appFunctions = document.querySelector('.func');
+          appFunctions = document.querySelector('.func'),
+          appPrice = document.querySelector('.imgbtn__price');
 		appName.innerHTML = appObj.title;
     lastUpdate.innerHTML = convertUTS(appObj.lastUpdate);
     banksNum.innerHTML = appObj.banks;
@@ -77,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
     appReq.innerHTML = appObj.req;
     appImg.src = `./assets/img/img-${appObj.guid}.jpg`;
     appFunctions.innerHTML = '';
+    appPrice.innerHTML = appObj.price;
     appObj.functions.forEach(func => {
       const funcItem = document.createElement('LI');
       funcItem.classList.add('func__item');
@@ -84,5 +98,9 @@ document.addEventListener('DOMContentLoaded', function() {
       appFunctions.appendChild(funcItem);
     });
 	}
+
+  // const btn = document.querySelector('.imgbtn__button');
+  // btn.addEventListener('click', addToCart);
+  // const cart = new Cart();
 });
 
