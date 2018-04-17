@@ -1,5 +1,6 @@
 import {putPromoApps} from './slider-packages.js';
 import {initSliderControls} from './slider-controls.js';
+import {manageLoader} from './script4.js';
 
 export function initSlider(path, targetSelector, numberOfApps) {
     createSliderHTML(targetSelector);
@@ -26,14 +27,6 @@ function createSliderXhr(numberOfApps) {
     initSliderControls();
   }
 
-  function manageLoader(){
-    const loader = document.querySelector('.cssload-loader');
-    if (this.readyState === 1) {
-      loader.classList.remove('cssload-loader-hidden');
-    } else if (this.readyState === 4) {
-      loader.classList.add('cssload-loader-hidden');
-    }
-  }
   return xhr;
 }
 

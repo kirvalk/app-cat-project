@@ -15,7 +15,16 @@ export function  convertUTS(sec) {
   return `${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`;
 }
 
-export function highlightActiveApp(appId){
+export function highlightActiveAppLink(appId){
   const appLink = document.querySelector(`.cat-menu__link[data-id="${appId}"]`);
   appLink.classList.add('cat-menu__link_active');
+}
+
+export function manageLoader(){
+  const loader = document.querySelector('.cssload-loader');
+  if (this.readyState === 1) {
+    loader.classList.remove('cssload-loader-hidden');
+  } else if (this.readyState === 4) {
+    loader.classList.add('cssload-loader-hidden');
+  }
 }
