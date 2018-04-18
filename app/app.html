@@ -7,7 +7,6 @@
   <link rel="stylesheet" type="text/css" href="./css/ui-kit.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <script type="module" src="./js/main-app.js"></script>
-  <script type="module" src="./js/cart.js"></script>
 </head> 
 <body class="page">
 	<header class="header clear">
@@ -23,13 +22,13 @@
 				<a class="link header__link" href="#">О КОМПАНИИ</a>
 			</nav>
 			<div class="cart">
-				<svg class="cart-icon">
-					<use xlink:href="#cart-icon"></use>
-				</svg>
-				<div class="cart__info">
-					<div class="cart__num">В корзине товаров: <span id="cart__num">0</span></div>
-					<div class="cart__sum">На сумму <span id="cart__sum">0 руб.</span></div>
+				<div class="cartwrapper">
+					<svg class="cart-icon">
+						<use xlink:href="#cart-icon"></use>
+					</svg>
+					<div class="cart__num" id="cart__num">0</div>
 				</div>
+				<div class="cart__sum" id="cart__sum"></div>
 			</div class="cart">
 		</div>
 	</header>
