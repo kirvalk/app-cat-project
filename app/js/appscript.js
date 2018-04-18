@@ -44,8 +44,7 @@ function sidebarMenuInit () {
     if (!ev.target.classList.contains('cat-menu__link')) return;
     ev.preventDefault();
     const appId = ev.target.dataset.id;
-    location.hash = "";
-    location.href = `${location.href}index${appId}`;
+    location.hash = `index${appId}`;
     const appLinks = document.querySelectorAll('.cat-menu__link');
     appLinks.forEach(link => link.classList.remove('cat-menu__link_active'));
     highlightActiveAppLink(appId);
