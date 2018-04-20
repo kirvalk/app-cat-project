@@ -1,7 +1,8 @@
 import {Application} from './application.js';
 
 export class Cart {
-  constructor() {
+  constructor(selector = '') {
+    this.btnSelector = selector;
     this.apps = [];
     this.init();
   }
@@ -37,13 +38,17 @@ export class Cart {
 
     this.render();
 
-    const toCartBtn = document.querySelector('#gotocart');
-    toCartBtn.addEventListener('click', ev => {
-      ev.preventDefault();
+    try {
+      const toCartBtn = document.querySelector(this.btnSelector);
+      toCartBtn.addEventListener('click', ev => {
+        ev.preventDefault();
         this.add(globalCurrentApp);
         this.sendToLocal();
         this.render();
-    });
+      });
+    } catch (e) {
+      console.log(e);
+    } 
 
     const cartWrapper = document.querySelector('.cartwrapper');
     cartWrapper.addEventListener('click', function(ev) {

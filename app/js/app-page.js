@@ -8,7 +8,7 @@ class AppPage {
     this.initpage();
   }
   initpage() {
-    const cart = new Cart();
+    const cart = new Cart('#gotocart');
     const sidebar = new AppSidebar();
   }
 }
