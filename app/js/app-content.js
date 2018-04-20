@@ -1,5 +1,4 @@
 import {Application} from './application.js';
-import {highlightActiveAppLink} from './script4.js';
 import {convertUTS} from './script4.js';
 
 export class AppContent {

@@ -1,4 +1,3 @@
-import {highlightActiveAppLink} from './script4.js';
 import {AppContent} from './app-content.js';
 
 export class AppSidebar {
@@ -7,8 +6,8 @@ export class AppSidebar {
     this.init();
   }
 
-  // returns id from url
-  // if not id in url - returns undefined
+
+  // if it's not id in url - returns undefined
   getIdfromUrl() {
     return location.href.split('#index')[1];
   }
@@ -27,7 +26,7 @@ export class AppSidebar {
       ev.preventDefault();
       this.currentId = parseInt(ev.target.dataset.id, 10);
       location.hash = `index${this.currentId}`;
-      highlightActiveAppLink(this.currentId);
+      this.highlightActiveAppLink();
       let content = new AppContent(this.currentId);
     });
 
@@ -39,7 +38,7 @@ export class AppSidebar {
       for (let app of appList) {
         createAppLink(app);
       }
-      highlightActiveAppLink(this.currentId);
+      this.highlightActiveAppLink();
       let content = new AppContent(this.currentId);
     });
     xhr.open("GET", './api/app_packages.json', true);
@@ -52,5 +51,12 @@ export class AppSidebar {
       linkTemp.querySelector('.cat-menu__link').setAttribute('data-id', appObj.id);
       list.appendChild(linkTemp);
     }
+  }
+
+  highlightActiveAppLink(){
+    const appLinks = document.querySelectorAll('.cat-menu__link');
+    appLinks.forEach(link => link.classList.remove('cat-menu__link_active'));
+    const appLink = document.querySelector(`.cat-menu__link[data-id="${this.currentId}"]`);
+    appLink.classList.add('cat-menu__link_active');
   }
 }
