@@ -94,6 +94,8 @@ export class BigCart {
       cartRow.querySelector('.basket__product-name').textContent = row.name;
       cartRow.querySelector('.app-price').textContent = row.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
       cartRow.querySelector('.counter__number').textContent = row.quantity;
+      cartRow.querySelector('.checkbox').setAttribute('id', `ch${row.id}`);
+      cartRow.querySelector('.checkbox__label').setAttribute('for', `ch${row.id}`);
 
       const removeBtn = cartRow.querySelector('.del-icon');
       removeBtn.setAttribute('data-id', row.id);
