@@ -1,4 +1,4 @@
-import {Application} from './cart.js';
+import {Application} from './application.js';
 
 export class BigCart {
   constructor() {
@@ -7,16 +7,18 @@ export class BigCart {
   }
 
   init() {
-    const storage = [...JSON.parse(window.localStorage.getItem('cart')).apps];
-    for (let i = 0; i < storage.length; i++) {
+    if (!window.localStorage.getItem('cart')) return;
+    
+    const localData = [...JSON.parse(window.localStorage.getItem('cart')).apps];
+    for (let i = 0; i < localData.length; i++) {
       const xhr = new XMLHttpRequest();
-      xhr.open("GET", `./api/app_package${storage[i].id}.json`, true);
+      xhr.open("GET", `./api/app_package${localData[i].id}.json`, true);
       xhr.addEventListener('readystatechange', ev => {
         if (ev.target.readyState !== 4 || ev.target.status !== 200) return;
         const resp = JSON.parse(ev.target.responseText);
         const application = new Application (resp.id, resp.price, resp.title, resp.guid);
         this.add(application);
-        if (this.apps.length === storage.length) {
+        if (this.apps.length === localData.length) {
           this.render();
         }
       });

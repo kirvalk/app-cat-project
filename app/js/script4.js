@@ -16,6 +16,8 @@ export function  convertUTS(sec) {
 }
 
 export function highlightActiveAppLink(appId){
+  const appLinks = document.querySelectorAll('.cat-menu__link');
+  appLinks.forEach(link => link.classList.remove('cat-menu__link_active'));
   const appLink = document.querySelector(`.cat-menu__link[data-id="${appId}"]`);
   appLink.classList.add('cat-menu__link_active');
 }
