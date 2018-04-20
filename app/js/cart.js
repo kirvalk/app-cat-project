@@ -1,29 +1,37 @@
 import {manageLoader} from './script4.js';
 
-class Application {
-  constructor(id, price){
+export class Application {
+  constructor(id, price, name, guid){
     this.id = id;
     this.price = price;
-    this.quantity = 1;
+    this.name = name;
+    this.guid = guid;
   }
 
-  goToCart(cartObj){
-    const elemAlreadyAdded = cartObj.find(app => app.id === this.id);
-    elemAlreadyAdded ? elemAlreadyAdded.quantity += 1 : cartObj.push(this);
-    console.log(cartObj);
-  }
 }
 
-class Cart extends Array {
-  sum() {
-    return this.reduce((total, app) => total + app.price * app.quantity, 0);
+class Cart {
+  constructor() {
+    this.apps = [];
   }
-  num() {
-    return this.reduce((total, app) => total + app.quantity, 0);
+  add(appObject) {
+    this.apps.push(appObject);
   }
-  updateCartInfo(quantityNode, sumNode) {
-    quantityNode.textContent = this.num();
-    sumNode.textContent = this.sum().toLocaleString('en-Us', { style: 'currency', currency: 'USD' });
+  remove() {}
+  render(quantityNode, sumNode) {
+    const quantity = this.apps.length;
+    quantityNode.textContent = quantity;
+
+    const sum = this.apps.reduce((total, app) => total + app.price, 0);
+    sumNode.textContent = sum.toLocaleString('en-Us', { style: 'currency', currency: 'USD' });
+  }
+  clear() {}
+  serialize() {
+    return JSON.stringify(this);
+  }
+  deserialize() {}
+  sendToLocal() {
+    window.localStorage.setItem('cart', this.serialize());
   }
 }
 
@@ -49,12 +57,17 @@ export function cartInit(addBtnSelector, quantitySelector, sumSelector, apiPath)
       if (this.readyState !== 4 || this.status !== 200) return;
       const app = JSON.parse(this.responseText);
       const application = new Application(app.id, app.price);
-      application.goToCart(cart);
+      cart.add(application);
 
       const numNode = document.querySelector(quantitySelector);
       const sumNode = document.querySelector(sumSelector);
-      cart.updateCartInfo(numNode, sumNode);
+      cart.render(numNode, sumNode);
     }
     return xhr;
   }
+  const cartWrapper = document.querySelector('.cartwrapper');
+  cartWrapper.addEventListener('click', function(ev) {
+    cart.sendToLocal();
+    location.href = './step1.html';
+  });
 }

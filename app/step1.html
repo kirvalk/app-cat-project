@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="./css/ui-kit.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <link rel="stylesheet" type="text/css" href="./css/style-order.css">
+  <script type="module" src="./js/cartpage.js"></script>
 </head> 
 <body class="order-page">
 	<div class="pr-bar pr-bar_order ">
@@ -27,73 +28,42 @@
 				<th class="basket__header-cell">ИТОГ</th>
 				<th class="basket__header-cell"></th>
 			</tr>
-			<tr class="basket__row">
-				<td class="basket__cell">
-					<img src="./img/app-img.jpg" alt="" class="basket__img">
-				</td>
-				<td class="basket__cell">
-					<div class="basket__product-name">
-						Новый ЦФТ-Банк
-					</div>
-					<input type="checkbox" id="ch1" class="checkbox checkbox_enabled">
-					<label class="label checkbox__label basket__label" for="ch1">установка и настройка</label>
-				</td>
-				<td class="basket__cell">
-					<span class="basket__value">$139,99</span>
-				</td>
-				<td class="basket__cell">
-					<div class="counter">
-						<input type="text" class="counter__input" value="0">
-						<span class="counter__circle counter__circle_left counter__circle_minus"></span>
-						<span class="counter__circle counter__circle_right counter__circle_plus"></span>
-						<div class="counter__number">1</div>
-					</div>
-				</td>
-				<td class="basket__cell">
-					<span class="basket__value">$139,99</span>
-				</td>
-				<td class="basket__cell">
-					<svg class="del-icon">
-						<use xlink:href="#del-icon"></use>
-					</svg>
-				</td>
-			</tr>
-			<tr class="basket__row">
-				<td class="basket__cell">
-					<img src="./img/app-img.jpg" alt="" class="basket__img">
-				</td>
-				<td class="basket__cell">
-					<div class="basket__product-name">
-						Новый ЦФТ-Банк
-					</div>
-					<input type="checkbox" id="ch2" class="checkbox checkbox_enabled">
-					<label class="label checkbox__label basket__label" for="ch2">установка и настройка</label>
-				</td>
-				<td class="basket__cell">
-					<span class="basket__value">$139,99</span>
-				</td>
-				<td class="basket__cell">
-					<div class="counter">
-						<input type="text" class="counter__input" value="0">
-						<span class="counter__circle counter__circle_left counter__circle_minus"></span>
-						<span class="counter__circle counter__circle_right counter__circle_plus"></span>
-						<div class="counter__number">1</div>
-					</div>
-				</td>
-				<td class="basket__cell">
-					<span class="basket__value">$139,99</span>
-				</td>
-				<td class="basket__cell">
-					<svg class="del-icon">
-						<use xlink:href="#del-icon"></use>
-					</svg>
-				</td>
-			</tr>
+			<template id="cart-item">
+				<tr class="basket__row">
+					<td class="basket__cell">
+						<img src="./img/app-img.jpg" alt="" class="basket__img">
+					</td>
+					<td class="basket__cell">
+						<div class="basket__product-name"></div>
+						<input type="checkbox" id="ch1" class="checkbox checkbox_enabled">
+						<label class="label checkbox__label basket__label" for="ch1">установка и настройка</label>
+					</td>
+					<td class="basket__cell">
+						<span class="basket__value app-price"></span>
+					</td>
+					<td class="basket__cell">
+						<div class="counter">
+							<input type="text" class="counter__input" value="0">
+							<span class="counter__circle counter__circle_left counter__circle_minus"></span>
+							<span class="counter__circle counter__circle_right counter__circle_plus"></span>
+							<div class="counter__number"></div>
+						</div>
+					</td>
+					<td class="basket__cell">
+						<span class="basket__value app-total"></span>
+					</td>
+					<td class="basket__cell">
+						<svg class="del-icon">
+							<use xlink:href="#del-icon"></use>
+						</svg>
+					</td>
+				</tr>
+			</template>
 		</table>
 	</div>
 	<div class="step1-buttons">
-		<div class="basket__total-first">$549</div>
-		<div class="basket__total-second">99</div>
+		<div class="basket__total-first"></div>
+		<div class="basket__total-second"></div>
 		<a href="#" class="button button_theme_blue button_normal step1-btn">ЗАКАЗАТЬ</a>
 	</div>
 	<svg class="svg" xmlns="http://www.w3.org/2000/svg">
