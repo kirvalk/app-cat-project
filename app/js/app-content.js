@@ -1,5 +1,6 @@
 import {Application} from './application.js';
 import {convertUTS} from './script4.js';
+import {PromiseRequest} from './promise-request.js';
 
 export class AppContent {
   constructor(id) {
@@ -7,18 +8,14 @@ export class AppContent {
   }
 
   init(id) {
-    const xhr = new XMLHttpRequest();
-    xhr.addEventListener('readystatechange', ev => {
-      if (ev.target.readyState !== 4 || ev.target.status !== 200) return;
-      const app = JSON.parse(ev.target.responseText);
-      globalCurrentApp = new Application(app.id, app.price);
-      this.render(app);
-    });
-
-    xhr.open("GET", `./api/app_package${id}.json`, true);
-    xhr.send();
+    const pr = new PromiseRequest(`./api/app_package${id}.json`);
+    pr.promise.then(response => {
+        const app = JSON.parse(response);
+        globalCurrentApp = new Application(app.id, app.price);
+        this.render(app);
+      }
+    );
   }
-
 
   render(appObj) {
     const appName = document.querySelector('.cat-header'),

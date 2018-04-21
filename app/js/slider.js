@@ -1,4 +1,6 @@
 import {convertUTS} from './script4.js';
+import {PromiseRequest} from './promise-request.js';
+
 
 export class Slider {
   constructor(selector, quantity) {
@@ -10,15 +12,8 @@ export class Slider {
   }
 
   init() {
-    const xhr = new XMLHttpRequest();
-    xhr.addEventListener('readystatechange', ev => {
-      if (ev.target.readyState !== 4 || ev.target.status !== 200) return;
-      const appList = JSON.parse(ev.target.responseText);
-      this.render(appList);
-    });
-
-    xhr.open("GET", './api/app_packages.json', true);
-    xhr.send();
+    const pr = new PromiseRequest('./api/app_packages.json');
+    pr.promise.then(response => this.render(JSON.parse(response)));
   }
 
   render(appList) {

@@ -1,4 +1,5 @@
 import {AppContent} from './app-content.js';
+import {PromiseRequest} from './promise-request.js';
 
 export class AppSidebar {
   constructor() {
@@ -30,19 +31,17 @@ export class AppSidebar {
       let content = new AppContent(this.currentId);
     });
 
-    const xhr = new XMLHttpRequest();
-    xhr.addEventListener('readystatechange', ev => {
-      if (ev.target.readyState !== 4 || ev.target.status !== 200) return;
-      const appList = JSON.parse(ev.target.responseText);
-
-      for (let app of appList) {
-        createAppLink(app);
+    const pr = new PromiseRequest('./api/app_packages.json');
+    pr.promise.then(response => {
+        const appList = JSON.parse(response);
+        for (let app of appList) {
+          createAppLink(app);
+        }
+        this.highlightActiveAppLink();
+        let content = new AppContent(this.currentId);
       }
-      this.highlightActiveAppLink();
-      let content = new AppContent(this.currentId);
-    });
-    xhr.open("GET", './api/app_packages.json', true);
-    xhr.send();
+    );
+
 
     function createAppLink (appObj) {
       const list = document.querySelector('.cat-menu__list');

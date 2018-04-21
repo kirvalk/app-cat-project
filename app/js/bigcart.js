@@ -1,4 +1,5 @@
 import {Application} from './application.js';
+import {PromiseRequest} from './promise-request.js';
 
 export class BigCart {
   constructor() {
@@ -10,20 +11,18 @@ export class BigCart {
     if (!window.localStorage.getItem('cart')) return;
     
     const localData = [...JSON.parse(window.localStorage.getItem('cart')).apps];
-    for (let i = 0; i < localData.length; i++) {
-      const xhr = new XMLHttpRequest();
-      xhr.open("GET", `./api/app_package${localData[i].id}.json`, true);
-      xhr.addEventListener('readystatechange', ev => {
-        if (ev.target.readyState !== 4 || ev.target.status !== 200) return;
-        const resp = JSON.parse(ev.target.responseText);
+    const pack = localData.map(app => {
+      const pr = new PromiseRequest(`./api/app_package${app.id}.json`);
+      return pr.promise;
+    });
+    Promise.all(pack).then(responseList => {
+      responseList.forEach(response => {
+        const resp = JSON.parse(response);
         const application = new Application (resp.id, resp.price, resp.title, resp.guid);
         this.add(application);
-        if (this.apps.length === localData.length) {
-          this.render();
-        }
       });
-      xhr.send();
-    }
+      this.render();
+    });
   }
 
   serialize() {
