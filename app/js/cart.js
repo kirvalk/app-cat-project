@@ -40,12 +40,15 @@ export class Cart {
 
     try {
       const toCartBtn = document.querySelector(this.btnSelector);
-      toCartBtn.addEventListener('click', ev => {
+      toCartBtn.addEventListener('click', btnHandler.bind(this));
+
+      function btnHandler(ev) {
         ev.preventDefault();
         this.add(globalCurrentApp);
         this.sendToLocal();
         this.render();
-      });
+      }
+
     } catch (e) {
       console.log(e);
     } 
