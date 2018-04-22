@@ -27,7 +27,7 @@ export class AppSidebar {
       ev.preventDefault();
       this.currentId = parseInt(ev.target.dataset.id, 10);
       location.hash = `index${this.currentId}`;
-      this.highlightActiveAppLink();
+      this._highlightActiveAppLink();
       let content = new AppContent(this.currentId);
     });
 
@@ -35,24 +35,22 @@ export class AppSidebar {
     pr.promise.then(response => {
         const appList = JSON.parse(response);
         for (let app of appList) {
-          createAppLink(app);
+          this._createAppLink(app);
         }
-        this.highlightActiveAppLink();
+        this._highlightActiveAppLink();
         let content = new AppContent(this.currentId);
-      }
-    );
-
-
-    function createAppLink (appObj) {
-      const list = document.querySelector('.cat-menu__list');
-      const linkTemp = document.querySelector('#menu-item').cloneNode(true).content;
-      linkTemp.querySelector('.cat-menu__link').innerHTML = appObj.title;
-      linkTemp.querySelector('.cat-menu__link').setAttribute('data-id', appObj.id);
-      list.appendChild(linkTemp);
-    }
+    });
   }
 
-  highlightActiveAppLink(){
+  _createAppLink (appObj) {
+    const list = document.querySelector('.cat-menu__list');
+    const linkTemp = document.querySelector('#menu-item').cloneNode(true).content;
+    linkTemp.querySelector('.cat-menu__link').innerHTML = appObj.title;
+    linkTemp.querySelector('.cat-menu__link').setAttribute('data-id', appObj.id);
+    list.appendChild(linkTemp);
+  }
+
+  _highlightActiveAppLink(){
     const appLinks = document.querySelectorAll('.cat-menu__link');
     appLinks.forEach(link => link.classList.remove('cat-menu__link_active'));
     const appLink = document.querySelector(`.cat-menu__link[data-id="${this.currentId}"]`);

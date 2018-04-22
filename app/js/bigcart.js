@@ -99,7 +99,7 @@ export class BigCart {
       const removeBtn = cartRow.querySelector('.del-icon');
       removeBtn.setAttribute('data-id', row.id);
       removeBtn.addEventListener('click', ev => {
-        this.remove(getRowId(ev.currentTarget));
+        this.remove(this._getRowId(ev.currentTarget));
         this.updateTotal();
         this.sendToLocal();
         ev.target.closest('.basket__row').remove();
@@ -109,7 +109,7 @@ export class BigCart {
       counter.setAttribute('data-id', row.id);
       counter.addEventListener('click', ev => {
         if (!ev.target.classList.contains('counter__circle')) return;
-        const id = getRowId(ev.currentTarget);
+        const id = this._getRowId(ev.currentTarget);
         const numberNode = counter.querySelector('.counter__number');
         const currentNumber = parseInt(numberNode.textContent, 10);
         if (ev.target.classList.contains('counter__circle_minus')) {
@@ -132,9 +132,9 @@ export class BigCart {
       this.updateCurrentValue(row.id);
       this.updateTotal();
     });
+  }
 
-    function getRowId(elem) {
-      return elem.closest('.basket__row').dataset.id;
-    }
+  _getRowId(elem) {
+    return elem.closest('.basket__row').dataset.id;
   }
 }

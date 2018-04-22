@@ -40,22 +40,17 @@ export class Cart {
 
     try {
       const toCartBtn = document.querySelector(this.btnSelector);
-      toCartBtn.addEventListener('click', btnHandler.bind(this));
-
-      function btnHandler(ev) {
+      toCartBtn.addEventListener('click', ev => {
         ev.preventDefault();
         this.add(globalCurrentApp);
         this.sendToLocal();
         this.render();
-      }
-
+      });
     } catch (e) {
-      console.log(e);
+      console.log('нет кнопки на этой странице');
     } 
 
     const cartWrapper = document.querySelector('.cartwrapper');
-    cartWrapper.addEventListener('click', function(ev) {
-      location.href = './step1.html';
-    });
+    cartWrapper.addEventListener('click', () => location.href = './step1.html');
   }
 }
