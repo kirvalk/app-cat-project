@@ -553,6 +553,7 @@ input:focus, a:focus {
 	height: 96px;
 	border-radius: 50%;
 	perspective: 1200px;
+	z-index: 5000;
 }
 
 .cssload-inner {
