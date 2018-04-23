@@ -14,12 +14,3 @@ export function  convertUTS(sec) {
                       'июля','августа','сентября','октября','ноября','декабря'];
   return `${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`;
 }
-
-export function manageLoader(){
-  const loader = document.querySelector('.cssload-loader');
-  if (this.readyState === 1) {
-    loader.classList.remove('cssload-loader-hidden');
-  } else if (this.readyState === 4) {
-    loader.classList.add('cssload-loader-hidden');
-  }
-}
