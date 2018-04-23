@@ -7,6 +7,8 @@
   <link rel="stylesheet" type="text/css" href="./css/ui-kit.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <link rel="stylesheet" type="text/css" href="./css/style-order.css">
+  <script type="module" src="./js/contact-page.js"></script>
+
 </head> 
 <body class="order-page">
 	<div class="pr-bar pr-bar_order ">
@@ -21,33 +23,33 @@
 	<form action="" method="" class="order-contacts order-contacts__pos">
 		<div class="order-contacts__inputs clear">
 			<div class="order-contacts__cell order-contacts__cell3">
-				<input type="text" class="text-input step3-input" placeholder="Фамилия">
+				<input type="text" class="text-input step3-input step3__surname" placeholder="Фамилия">
 			</div>	
 			<div class="order-contacts__cell order-contacts__cell3">
-				<input type="text" class="text-input step3-input" placeholder="Имя Отчество">
+				<input type="text" class="text-input step3-input step3__name" placeholder="Имя Отчество">
 			</div>	
 			<div class="order-contacts__cell order-contacts__cell3">
-				<input type="text" class="text-input step3-input" placeholder="Номер телефона">
+				<input type="text" class="text-input step3-input step3__phone" placeholder="Номер телефона">
 			</div>	
 			<div class="order-contacts__cell order-contacts__cell3">
-				<input type="text" class="text-input step3-input" placeholder="E-mail">
+				<input type="text" class="text-input step3-input step3__email" placeholder="E-mail">
 			</div>	
 			<div class="order-contacts__cell order-contacts__cell2">
-				<input type="text" class="text-input step3-input" placeholder="Организация">
+				<input type="text" class="text-input step3-input step3__company" placeholder="Организация">
 			</div>	
 			<div class="order-contacts__cell order-contacts__cell2">
-				<input type="text" class="text-input step3-input" placeholder="ИНН">
+				<input type="text" class="text-input step3-input step3__taxcode" placeholder="ИНН">
 			</div>	
 			<div class="order-contacts__cell order-contacts__cell2">
-				<input type="text" class="text-input step3-input" placeholder="Город">
+				<input type="text" class="text-input step3-input step3__city" placeholder="Город">
 			</div>	
 		</div>
 		<div class="order-contacts__options">
-			<input type="radio" id="r1" name="rad" value="" class="radio radio_enabled" checked>
+			<input type="radio" id="r1" name="install" value="" class="radio radio_enabled">
 			<label for="r1" class="label radio__label step3-radio">Быстрая установка</label>
 	
-			<input type="radio" id="r3" name="rad" value="" class="radio radio_enabled">
-			<label for="r3" class="label radio__label step3-radio">Отложенная установка</label>
+			<input type="radio" id="r2" name="install" value="" class="radio radio_enabled">
+			<label for="r2" class="label radio__label step3-radio">Отложенная установка</label>
 		</div>
 		<div class="step3-buttons clear">
 			<a href="#" class="button button_theme_blue button_normal step3-buttons_right">ОТПРАВИТЬ</a>
