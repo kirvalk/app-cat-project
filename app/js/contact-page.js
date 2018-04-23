@@ -21,6 +21,7 @@ class ContactPage {
       pr.then(href => {
         loader.toggle();
         location.href = href;
+        localStorage.removeItem('cart');
       });
     });
   }
