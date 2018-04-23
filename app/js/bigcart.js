@@ -18,7 +18,8 @@ export class BigCart {
     Promise.all(pack).then(responseList => {
       responseList.forEach(response => {
         const resp = JSON.parse(response);
-        const application = new Application (resp.id, resp.price, resp.title, resp.guid);
+        const extra = localData.find(app => app.id == resp.id).extra;
+        const application = new Application (resp.id, resp.price, resp.title, resp.guid, extra);
         this.add(application);
       });
       this.render();
@@ -80,7 +81,8 @@ export class BigCart {
                     price : app.price,
                     name : app.name,
                     guid : app.guid,
-                    quantity : 1
+                    quantity : 1,
+                    extra : app.extra
                   });
       }
       return total;
@@ -94,6 +96,7 @@ export class BigCart {
       cartRow.querySelector('.app-price').textContent = row.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
       cartRow.querySelector('.counter__number').textContent = row.quantity;
       cartRow.querySelector('.checkbox').setAttribute('id', `ch${row.id}`);
+      cartRow.querySelector('.checkbox').checked = row.extra;
       cartRow.querySelector('.checkbox__label').setAttribute('for', `ch${row.id}`);
 
       const removeBtn = cartRow.querySelector('.del-icon');
@@ -131,6 +134,19 @@ export class BigCart {
       targetNode.appendChild(cartRow);
       this.updateCurrentValue(row.id);
       this.updateTotal();
+    });
+
+    const extraList = document.querySelectorAll('.checkbox_extra');
+    extraList.forEach(item => {
+      const id = this._getRowId(item);
+      item.addEventListener('change', ev => {
+        this.apps.forEach(app => {
+          if(app.id == id){
+            app.extra = item.checked;
+          }
+        });
+        this.sendToLocal();
+      });
     });
   }
 
