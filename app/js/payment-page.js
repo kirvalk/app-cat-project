@@ -1,13 +1,15 @@
 import {Loader} from './loader.js';
+import {CreditCard} from './credit-card.js';
 
 class PaymentPage {
   constructor() {
     this.initpage();
   }
-  
+
   initpage() {
     const nextBtn = document.querySelector('.step2-buttons_right');
     const loader = new Loader();
+    const creditCard = new CreditCard();
     nextBtn.addEventListener('click', ev => {
       ev.preventDefault();
       loader.toggle();
