@@ -1,4 +1,5 @@
 import {BigCart} from './bigcart.js';
+import {ProgressBar} from './progress-bar.js';
 
 class CartPage {
   constructor() {
@@ -6,6 +7,7 @@ class CartPage {
   }
   initpage() {
     const cart = new BigCart();
+    const progressBar = new ProgressBar(1);
     const nextBtn = document.querySelector('.step1-btn');
     nextBtn.addEventListener('click', ev => {
     	ev.preventDefault();

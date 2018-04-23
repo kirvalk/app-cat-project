@@ -1,5 +1,6 @@
 import {Loader} from './loader.js';
 import {Contacts} from './contacts.js';
+import {ProgressBar} from './progress-bar.js';
 
 class ContactPage {
   constructor() {
@@ -7,6 +8,7 @@ class ContactPage {
   }
 
   initpage() {
+    const brogressBar = new ProgressBar(3);
     const nextBtn = document.querySelector('.step3-buttons_right');
     const loader = new Loader();
     const contacts = new Contacts();

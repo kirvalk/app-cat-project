@@ -1,5 +1,6 @@
 import {Loader} from './loader.js';
 import {CreditCard} from './credit-card.js';
+import {ProgressBar} from './progress-bar.js';
 
 class PaymentPage {
   constructor() {
@@ -7,6 +8,7 @@ class PaymentPage {
   }
 
   initpage() {
+    const brogressBar = new ProgressBar(2);
     const nextBtn = document.querySelector('.step2-buttons_right');
     const loader = new Loader();
     const creditCard = new CreditCard();

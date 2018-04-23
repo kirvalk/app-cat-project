@@ -689,6 +689,7 @@
 	background: url(../assets/icons/ch.svg) #1e8bc3 no-repeat 50% 50%;
 	background-size: 16px 11px;
 	border: solid 1px #1e8bc3;
+	cursor: pointer;
 }
 .pr-bar__item_complete:after {
 	background-color: #1e8bc3;
