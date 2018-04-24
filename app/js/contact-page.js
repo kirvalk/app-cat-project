@@ -9,7 +9,7 @@ class ContactPage {
   }
 
   initpage() {
-    const contacts = new Contacts(),
+    const contacts = new Contacts('.order-contacts', 'contacts'),
           brogressBar = new ProgressBar(3),
           loader = new Loader();
 

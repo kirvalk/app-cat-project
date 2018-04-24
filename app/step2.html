@@ -20,10 +20,10 @@
 	</div>
 	<div class="cards cards__pos">
 		<div class="cards__front">
-			<input type="text" class="text-input cards__num" placeholder="Номер карты">
-			<input type="text" class="text-input cards__month" placeholder="Месяц">
-			<input type="text" class="text-input cards__year" placeholder="Год">
-			<input type="text" class="text-input cards__holder" placeholder="Фамилия Имя владельца карты">
+			<input type="text" class="text-input cards__num" data-field="number" placeholder="Номер карты">
+			<input type="text" class="text-input cards__month" data-field="month" placeholder="Месяц">
+			<input type="text" class="text-input cards__year" data-field="year" placeholder="Год">
+			<input type="text" class="text-input cards__holder" data-field="owner" placeholder="Фамилия Имя владельца карты">
 			<svg class="master-card">
 				<use xlink:href="#master-card"></use>
 			</svg>
@@ -33,7 +33,7 @@
 		</div>
 		<div class="cards__back">
 			<div class="cards__strip"></div>
-			<input type="text" class="text-input cards__cvv" placeholder="CVV">
+			<input type="text" class="text-input cards__cvv" data-field="cvv" placeholder="CVV">
 			<div class="cards__cvv-desc">Три цифры на обратной стороне</div>
 		</div>
 	</div>

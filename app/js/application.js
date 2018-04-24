@@ -4,6 +4,6 @@ export class Application {
     this.price = price;
     this.name = name;
     this.guid = guid;
-    this.extra = extra; //для хранения состояния чекбокса "установка и настройка" в корзине.
+    this.extra = extra;
   }
 }

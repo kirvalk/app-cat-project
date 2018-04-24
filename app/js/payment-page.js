@@ -1,5 +1,5 @@
 import {Loader} from './loader.js';
-import {CreditCard} from './credit-card.js';
+import {Form} from './form.js';
 import {ProgressBar} from './progress-bar.js';
 import {randomTime} from './utils.js';
 
@@ -9,7 +9,7 @@ class PaymentPage {
   }
 
   initpage() {
-    const creditCard = new CreditCard(),
+    const creditCard = new Form('.cards', 'credit-card'),
           brogressBar = new ProgressBar(2),
           loader = new Loader();
 
