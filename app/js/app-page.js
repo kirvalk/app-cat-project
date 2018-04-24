@@ -1,6 +1,6 @@
 import {Cart} from './cart.js';
 import {AppSidebar} from './app-sidebar.js';
-import {highlightActiveHeaderLink} from './script4.js';
+import {highlightActiveHeaderLink} from './utils.js';
 
 window.globalCurrentApp = {}; //global, Cart now have access to it;
 

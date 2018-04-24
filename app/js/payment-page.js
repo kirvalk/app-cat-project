@@ -1,7 +1,7 @@
 import {Loader} from './loader.js';
 import {CreditCard} from './credit-card.js';
 import {ProgressBar} from './progress-bar.js';
-import {randomTime} from './script4.js';
+import {randomTime} from './utils.js';
 
 class PaymentPage {
   constructor() {

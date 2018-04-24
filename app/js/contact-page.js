@@ -1,7 +1,7 @@
 import {Loader} from './loader.js';
 import {Contacts} from './contacts.js';
 import {ProgressBar} from './progress-bar.js';
-import {randomTime} from './script4.js';
+import {randomTime} from './utils.js';
 
 class ContactPage {
   constructor() {

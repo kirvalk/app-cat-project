@@ -1,6 +1,6 @@
 import {Slider} from './slider.js';
 import {Cart} from './cart.js';
-import {highlightActiveHeaderLink} from './script4.js';
+import {highlightActiveHeaderLink} from './utils.js';
 
 
 class MainPage {

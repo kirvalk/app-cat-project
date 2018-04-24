@@ -1,4 +1,4 @@
-import {convertUTS} from './script4.js';
+import {convertUTS} from './utils.js';
 import {PromiseRequest} from './promise-request.js';
 
 export class Slider {
