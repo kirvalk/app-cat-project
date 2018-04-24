@@ -7,8 +7,6 @@ export class AppSidebar {
     this.init();
   }
 
-
-  // if it's not id in url - returns undefined
   getIdfromUrl() {
     return location.href.split('#index')[1];
   }
