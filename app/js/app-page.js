@@ -8,6 +8,7 @@ class AppPage {
   constructor() {
     this.initpage();
   }
+  
   initpage() {
   	highlightActiveHeaderLink();
     const cart = new Cart('#gotocart');

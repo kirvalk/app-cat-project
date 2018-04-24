@@ -7,7 +7,7 @@ export class Contacts {
     this.company = '';
     this.taxCode = '';
     this.сity = '';
-    this.installId = 'r1';
+    this.installId = 'r1'; //хранит id выбраной радиокнопки
 
     this.init();
   }

@@ -15,6 +15,7 @@ export class BigCart {
       const pr = new PromiseRequest(`./api/app_package${app.id}.json`);
       return pr.promise;
     });
+
     Promise.all(pack).then(responseList => {
       responseList.forEach(response => {
         const resp = JSON.parse(response);
@@ -73,6 +74,7 @@ export class BigCart {
       const added = total.find(function(elem){
         return app.id === elem.id;
       });
+      
       if (added) {
         added.quantity += 1;
       } else {
@@ -100,7 +102,6 @@ export class BigCart {
       cartRow.querySelector('.checkbox__label').setAttribute('for', `ch${row.id}`);
 
       const removeBtn = cartRow.querySelector('.del-icon');
-      removeBtn.setAttribute('data-id', row.id);
       removeBtn.addEventListener('click', ev => {
         this.remove(this._getRowId(ev.currentTarget));
         this.updateTotal();
@@ -109,7 +110,6 @@ export class BigCart {
       });
 
       const counter = cartRow.querySelector('.counter');
-      counter.setAttribute('data-id', row.id);
       counter.addEventListener('click', ev => {
         if (!ev.target.classList.contains('counter__circle')) return;
         const id = this._getRowId(ev.currentTarget);

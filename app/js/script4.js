@@ -14,3 +14,7 @@ export function  convertUTS(sec) {
                       'июля','августа','сентября','октября','ноября','декабря'];
   return `${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`;
 }
+
+export function randomTime(max) {
+  return Math.floor(Math.random() * max);
+}

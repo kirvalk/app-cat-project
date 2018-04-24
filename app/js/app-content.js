@@ -36,8 +36,8 @@ export class AppContent {
     appCode.innerHTML = appObj.code;
     appReq.innerHTML = appObj.req;
     appImg.src = `./assets/img/img-${appObj.guid}.jpg`;
-    appFunctions.innerHTML = '';
     appPrice.innerHTML = appObj.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+    appFunctions.innerHTML = '';
     appObj.functions.forEach(func => {
       const funcItem = document.createElement('LI');
       funcItem.classList.add('func__item');
