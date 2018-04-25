@@ -568,21 +568,21 @@ input:focus, a:focus {
 	left: 0%;
 	top: 0%;
 	animation: cssload-rotate-one 0.8s linear infinite;
-	border-bottom: 5px solid rgb(240,26,240);
+	border-bottom: 5px solid #ED1B2F;
 }
 
 .cssload-inner.cssload-two {
 	right: 0%;
 	top: 0%;
 	animation: cssload-rotate-two 0.8s linear infinite;
-	border-right: 5px solid rgb(18,29,235);
+	border-right: 5px solid #239fde;
 }
 
 .cssload-inner.cssload-three {
 	right: 0%;
 	bottom: 0%;
 	animation: cssload-rotate-three 0.8s linear infinite;
-	border-top: 5px solid rgb(158,219,27);
+	border-top: 5px solid #79878e;
 }
 
 @keyframes cssload-rotate-one {
